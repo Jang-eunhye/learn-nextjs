@@ -3,6 +3,7 @@ import styles from "../styles/movie-videos.module.css";
 
 async function getVideos(id: string) {
   const response = await fetch(`${API_URL}/${id}/videos`);
+  console.log(`Fetching videos: ${Date.now()}`);
   return response.json();
 }
 
