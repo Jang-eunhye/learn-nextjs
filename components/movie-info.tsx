@@ -19,7 +19,6 @@ export default async function MovieInfo({ id }: { id: string }) {
       />
       <div className={styles.info}>
         <h1 className={styles.title}>{movie.title}</h1>
-        <Link href={`/movies/${id}/similar`}>&rarr; SimilarMovies</Link>
         <h3>⭐{movie.vote_average.toFixed(1)}</h3>
         <p>{movie.overview}</p>
         <a href={movie.homepage} target={"_blank"}>
