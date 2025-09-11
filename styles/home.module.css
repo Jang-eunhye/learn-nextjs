@@ -1,6 +1,6 @@
 .container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* 카드 최소 180px, 자동 줄바꿈 */
   gap: 25px;
   max-width: 90%;
   width: 100%;
