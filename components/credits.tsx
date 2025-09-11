@@ -13,7 +13,7 @@ export default async function Credits({ id }: { id: string }) {
   return (
     <div className={styles.container}>
       {casts.map((item) => (
-        <li key={item.id} className={styles.card}>
+        <li key={item.credit_id} className={styles.card}>
           <img
             src={
               item.profile_path ??
