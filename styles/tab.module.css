@@ -1,0 +1,30 @@
+.list {
+  display: flex;
+  width: 100%;
+  margin: 50px 0 50px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  flex: 1; /* 전체 너비 3등분 */
+  display: "flex";
+  flexDirection: "column";
+}
+
+.tab {
+  display: block;
+  width: 100%;
+  padding: 14px 0;
+  font-size: 18px; /* 글자 크기 조금 크게 */
+  font-weight: 600;
+  text-align: center;
+  color: #ffffff; /* 글자 색상 화이트 */
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.tab[aria-current="true"] {
+  background: #9ca3af; /* 선택된 탭 회색 */
+}
