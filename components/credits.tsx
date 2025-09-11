@@ -17,7 +17,7 @@ export default async function Credits({ id }: { id: string }) {
           <img
             src={
               item.profile_path ??
-              "https://via.placeholder.com/185x278?text=No+Image"
+              "/image/dafult_profile_image.png"
             }
             alt={item.name}
             className={styles.img}
