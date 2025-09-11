@@ -2,7 +2,6 @@ import Movie from "./movie";
 import { API_URL } from "../app/constants";
 import styles from "../styles/home.module.css";
 
-
 async function getMovie(id: string) {
   const response = await fetch(`${API_URL}/${id}/similar`);
   console.log(`Fetching similar movies: ${Date.now()}`);
@@ -11,7 +10,7 @@ async function getMovie(id: string) {
 
 export default async function SimilarMovies({ id }: { id: string }) {
   const movies = await getMovie(id);
-  
+
   return (
     <div className={styles.container}>
       {movies.map((movie) => (

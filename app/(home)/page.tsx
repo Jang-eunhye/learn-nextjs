@@ -1,5 +1,5 @@
 import Movie from "../../components/movie";
-import styles from "../../styles/home.module.css"
+import styles from "../../styles/home.module.css";
 import { API_URL } from "../constants";
 
 export const metadata = {
@@ -7,8 +7,6 @@ export const metadata = {
 };
 
 async function getMovies() {
-  // await new Promise((resolve) => setTimeout(resolve, 1000));
-  // return fetch(URL).then((response) => response.json());
   const response = await fetch(API_URL);
   const json = await response.json();
   return json;
