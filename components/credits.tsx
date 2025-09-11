@@ -1,0 +1,34 @@
+import { API_URL } from "../app/constants";
+import styles from "../styles/home.module.css";
+import CastList from "./cast";
+// import { Cast } from "./cast";
+
+async function getCasts(id: string) {
+  const response = await fetch(`${API_URL}/${id}/credits`);
+  console.log(`Fetching similar movies: ${Date.now()}`);
+  return response.json();
+}
+
+export default async function Credits({ id }: { id: string }) {
+  const casts = await getCasts(id);
+
+  return (
+    // {videos.map((video) => (
+    <div className= {styles.container}>
+      {casts.map((item) => (
+        <li key={item.id} className={styles.card}>
+        <img
+          src={item.profile_path ?? "https://via.placeholder.com/185x278?text=No+Image"}
+          alt={item.name}
+          className={styles.img}
+        />
+        <div className={styles.info}>
+          <strong style={{ fontSize: 14 }}>{item.name}</strong>
+          <span style={{ fontSize: 12, color: "#666" }}>{item.character}</span>
+        </div>
+      </li>
+      ))}
+      {/* credits */}
+    </div>
+  );
+}

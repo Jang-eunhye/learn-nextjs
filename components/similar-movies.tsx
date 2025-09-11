@@ -1,6 +1,6 @@
-import Movie from "../../../../../components/movie";
-import { API_URL } from "../../../../constants";
-import styles from "../../../../../styles/home.module.css";
+import Movie from "./movie";
+import { API_URL } from "../app/constants";
+import styles from "../styles/home.module.css";
 
 
 async function getMovie(id: string) {
@@ -9,7 +9,7 @@ async function getMovie(id: string) {
   return response.json();
 }
 
-export default async function SimilarMoviesPage({ params: { id } }: { params: { id: string } }) {
+export default async function SimilarMovies({ id }: { id: string }) {
   const movies = await getMovie(id);
   
   return (

@@ -4,6 +4,8 @@ import MovieInfo, { getMovie } from "../../../../components/movie-info";
 import MovieVideos from "../../../../components/movie-videos";
 import Tab from "../../../../components/tab";
 import Link from "next/link";
+import SimilarMovies from "../../../../components/similar-movies";
+import Credits from "../../../../components/credits";
 
 interface IParams {
   params: Promise<{ id: string }>;
@@ -40,16 +42,22 @@ export default async function MovieDetail({
       </Suspense>
       {/* <Tab tabOptions={tabItems} selected="credits" id={id}></Tab> */}
       {/* <Suspense fallback={<h1>Loading movie videos</h1>}> */}
-        {/* <MovieVideos id={id} /> */}
+      {/* <MovieVideos id={id} /> */}
       {/* </Suspense> */}
       <Tab id={id} active={tab} />
 
       {/* 아래 탭 영역만 변경 */}
       <Suspense key={tab} fallback={<h2>Loading...</h2>}>
-        {tab === "similar"? <p>similar</p> : tab === "videos" ? <MovieVideos id={id} /> : <p>credits</p>}
+        {tab === "similar" ? (
+          <SimilarMovies id={id} />
+        ) : tab === "videos" ? (
+          <MovieVideos id={id} />
+        ) : (
+          <Credits id={id} />
+        )}
       </Suspense>
 
-       {/* <nav>
+      {/* <nav>
         <Link
           href={`/movies/${id}?tab=credits`}
           aria-current={tab === "info" ? "page" : undefined}
@@ -63,5 +71,6 @@ export default async function MovieDetail({
           Videos
           </Link>
           </nav>  */}
-      </div>
-    )};
+    </div>
+  );
+}
