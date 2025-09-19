@@ -1,7 +1,15 @@
 import { API_URL } from "../app/constants";
 import styles from "../styles/movie-videos.module.css";
 
-async function getVideos(id: string) {
+type Video = {
+  id: number;
+  key: string;
+  name: string;
+  site: string;
+  type: string;
+};
+
+async function getVideos(id: string): Promise<Video[]> {
   const response = await fetch(`${API_URL}/${id}/videos`);
   console.log(`Fetching videos: ${Date.now()}`);
   return response.json();

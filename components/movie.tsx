@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 
 interface IMovieProps {
   title: string;
-  id: string;
+  id: number;
   poster_path: string;
 }
 

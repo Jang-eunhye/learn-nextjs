@@ -1,7 +1,16 @@
 import { API_URL } from "../app/constants";
 import styles from "../styles/home.module.css";
 
-async function getCasts(id: string) {
+type Cast = {
+  id: number;
+  credit_id: string;
+  name: string;
+  character: string;
+  profile_path: string | null;
+  order: number;
+};
+
+async function getCasts(id: string): Promise<Cast[]> {
   const response = await fetch(`${API_URL}/${id}/credits`);
   console.log(`Fetching similar movies: ${Date.now()}`);
   return response.json();
@@ -15,10 +24,7 @@ export default async function Credits({ id }: { id: string }) {
       {casts.map((item) => (
         <li key={item.credit_id} className={styles.card}>
           <img
-            src={
-              item.profile_path ??
-              "/image/dafult_profile_image.png"
-            }
+            src={item.profile_path ?? "/image/dafult_profile_image.png"}
             alt={item.name}
             className={styles.img}
           />

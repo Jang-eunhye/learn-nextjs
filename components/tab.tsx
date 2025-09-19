@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import styles from "../styles/tab.module.css";
 
@@ -10,14 +10,13 @@ export default function Tab({ id, active }: { id: string; active: string }) {
   const pathname = usePathname();
   const sp = useSearchParams();
 
-
   const setTab = (next: string) => {
     const q = new URLSearchParams(sp);
     q.set("tab", next);
     router.replace(`${pathname}?${q.toString()}`, { scroll: false });
   };
 
-  const current = (active) as TabKey;
+  const current = active as TabKey;
 
   return (
     // <nav>

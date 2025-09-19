@@ -1,8 +1,16 @@
-import Link from "next/link";
 import { API_URL } from "../app/constants";
 import styles from "../styles/movie-info.module.css";
 
-export async function getMovie(id: string) {
+type Movie = {
+  id: number;
+  title: string;
+  poster_path: string;
+  vote_average: number;
+  overview: string;
+  homepage: string;
+};
+
+export async function getMovie(id: string): Promise<Movie> {
   console.log(`Fetching info: ${Date.now()}`);
   const response = await fetch(`${API_URL}/${id}`);
   return response.json();
