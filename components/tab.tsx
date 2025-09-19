@@ -19,11 +19,6 @@ export default function Tab({ id, active }: { id: string; active: string }) {
   const current = active as TabKey;
 
   return (
-    // <nav>
-    //   <button aria-current={active==="credits"} onClick={() => setTab("credits")}>credits</button>
-    //   <button aria-current={active==="videos"} onClick={() => setTab("videos")}>videos</button>
-    //   <button aria-current={active==="similar"} onClick={() => setTab("similar")}>similar</button>
-    // </nav>
     <nav className={styles.wrap} role="tablist" aria-label="Movie sections">
       <ul className={styles.list}>
         {TABS.map((t) => (

@@ -8,8 +8,7 @@ export const metadata = {
 
 async function getMovies() {
   const response = await fetch(API_URL);
-  const json = await response.json();
-  return json;
+  return response.json();
 }
 
 export default async function HomePage() {

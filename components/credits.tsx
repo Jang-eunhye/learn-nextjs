@@ -4,7 +4,6 @@ import { CastType } from "../type/movie"
 
 async function getCasts(id: string): Promise<CastType[]> {
   const response = await fetch(`${API_URL}/${id}/credits`);
-  console.log(`Fetching similar movies: ${Date.now()}`);
   return response.json();
 }
 

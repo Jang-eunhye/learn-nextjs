@@ -4,7 +4,6 @@ import { VideoType } from "../type/movie";
 
 async function getVideos(id: string): Promise<VideoType[]> {
   const response = await fetch(`${API_URL}/${id}/videos`);
-  console.log(`Fetching videos: ${Date.now()}`);
   return response.json();
 }
 
