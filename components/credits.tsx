@@ -1,16 +1,8 @@
 import { API_URL } from "../app/constants";
 import styles from "../styles/home.module.css";
+import { CastType } from "../type/movie"
 
-type Cast = {
-  id: number;
-  credit_id: string;
-  name: string;
-  character: string;
-  profile_path: string | null;
-  order: number;
-};
-
-async function getCasts(id: string): Promise<Cast[]> {
+async function getCasts(id: string): Promise<CastType[]> {
   const response = await fetch(`${API_URL}/${id}/credits`);
   console.log(`Fetching similar movies: ${Date.now()}`);
   return response.json();

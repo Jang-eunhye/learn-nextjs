@@ -2,14 +2,9 @@
 import Link from "next/link";
 import styles from "../styles/movie.module.css";
 import { useRouter } from "next/navigation";
+import { MoviePreviewType } from "../type/movie";
 
-interface IMovieProps {
-  title: string;
-  id: number;
-  poster_path: string;
-}
-
-export default function Movie({ title, id, poster_path }: IMovieProps) {
+export default function Movie({ title, id, poster_path }: MoviePreviewType) {
   const router = useRouter();
   const onClick = () => {
     router.push(`/movies/${id}?tab=credits`);

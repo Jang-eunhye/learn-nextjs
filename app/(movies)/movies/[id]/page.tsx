@@ -6,8 +6,9 @@ import Tab from "../../../../components/tab";
 import SimilarMovies from "../../../../components/similar-movies";
 import Credits from "../../../../components/credits";
 
-interface IParams {
+type IParams = {
   params: Promise<{ id: string }>;
+  searchParams: Promise<{ tab?: string }>
 }
 
 export async function generateMetadata({ params }: IParams) {
@@ -21,10 +22,7 @@ export async function generateMetadata({ params }: IParams) {
 export default async function MovieDetail({
   params,
   searchParams,
-}: {
-  params: Promise<{ id: string }>;
-  searchParams: Promise<{ tab?: string }>;
-}) {
+}: IParams) {
   const { id } = await params;
   const { tab } = await searchParams;
 

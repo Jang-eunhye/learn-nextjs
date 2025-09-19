@@ -1,16 +1,9 @@
 import Movie from "./movie";
 import { API_URL } from "../app/constants";
 import styles from "../styles/home.module.css";
+import { MoviePreviewType } from "../type/movie"
 
-type SimilarMovie = {
-  id: number;
-  title: string;
-  poster_path: string;
-  vote_average: number;
-  overview: string;
-};
-
-async function getSimilarMovies(id: string): Promise<SimilarMovie[]> {
+async function getSimilarMovies(id: string): Promise<MoviePreviewType[]> {
   const response = await fetch(`${API_URL}/${id}/similar`);
   console.log(`Fetching similar movies: ${Date.now()}`);
   return response.json();
